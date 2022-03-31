@@ -7,7 +7,7 @@
 # change setup and run
 
 from PIL import Image
-
+import yaml
 
 class SquareMismatch(Exception):
     pass
@@ -45,12 +45,15 @@ class TestSquare:
         self.sq.square_paste(inner, 3)
         self.sq.img.save('test_sq_pasted.png')
 
-# SetUp
-offsets = [5, 10, 20, 25, 30, 35, 40, 45, 50,]# 55, 60, 65 , 70] #lenth of offsets should correspond with iterations
+
+# SetUp based on setup.yaml
+setup_file = open('setup.yaml', 'r')
+setup_data = yaml.load(setup_file, Loader=yaml.FullLoader)
+offsets = setup_data['offsets']
 iterations = len(offsets)
-min_square_size = 10
-colors = [(255, 0, 0), '#ffff00', 'green', 'blue'] #colors might be https://stackoverflow.com/questions/54165439/what-are-the-exact-color-names-available-in-pils-imagedraw
-filename = 'square.png'
+min_square_size = setup_data['min_square_size_pixels']
+colors = setup_data['colors']
+filename = setup_data['output_filename']
 
 # code
 size = min_square_size

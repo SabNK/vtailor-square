@@ -1,0 +1,9 @@
+---
+offsets: [5, 10, 20, 25, 30, 35, 40] #, 45, 50] #lenth of offsets determines iterations
+min_square_size_pixels: 10
+colors: #colors might be https://stackoverflow.com/questions/54165439/what-are-the-exact-color-names-available-in-pils-imagedraw
+  - red
+  - "#ffff00"
+  - green
+  - blue
+output_filename : square.png
