@@ -52,7 +52,7 @@ setup_data = yaml.load(setup_file, Loader=yaml.FullLoader)
 offsets = setup_data['offsets']
 iterations = len(offsets)
 min_square_size = setup_data['min_square_size_pixels']
-colors = setup_data['colors']
+colors = [c if type(c) == str else tuple(c) for c in setup_data['colors']]
 filename = setup_data['output_filename']
 
 # code
